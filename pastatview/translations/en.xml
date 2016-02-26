@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translations>
+  <translation id="message_pastatview_new_snippet">New Snippet</translation>
+  <translation id="message_pastatview_new_snippet_invalid">Invalid new Snippet, title and content must not be empty</translation>
+</translations>

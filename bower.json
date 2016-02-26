@@ -1,0 +1,24 @@
+{
+  "name": "tatwebui-plugin-pastatview",
+  "version": "0.0.1",
+  "authors": [
+    "Yvonnick Esnault <yvonnick.esnault@corp.ovh.com>"
+  ],
+  "description": "Pastat View",
+  "tatwebui-plugin": [
+    "pastatview/list/pastatview-list.directive.js",
+    "pastatview/list/pastatview-list.controller.js",
+    "pastatview/list/pastatview-list.route.js"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
