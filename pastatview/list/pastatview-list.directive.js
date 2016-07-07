@@ -53,7 +53,7 @@ angular.module('TatUi').directive('messagesPastatviewItem', function($compile) {
        * @description delete a message from a Private topic
        */
       this.deleteMessage = function(message) {
-        TatEngineMessagesRsc.delete({
+        TatEngineMessageRsc.delete({
           'idMessageToDelete': message._id,
           'cascade': 'cascade/'
         }).$promise.then(function(resp) {
