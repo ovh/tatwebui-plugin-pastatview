@@ -95,7 +95,7 @@ angular.module('TatUi').directive('messagesPastatviewItem', function($compile) {
        */
       this.hasLiked = function(message) {
         if (message && message.likers) {
-          return _.include(message.likers, Authentication.getIdentity().username);
+          return _.includes(message.likers, Authentication.getIdentity().username);
         }
         return false;
       };
@@ -202,15 +202,17 @@ angular.module('TatUi').directive('messagesPastatviewItem', function($compile) {
             TatEngine.displayReturn("Invalid return while getting message");
           } else {
             message.replies = data.messages[0].replies;
-            message.replies.sort(function(a, b) {
-              if (a.dateCreation > b.dateCreation) {
-                return 1;
-              }
-              if (a.dateCreation < b.dateCreation) {
-                return -1;
-              }
-              return 0;
-            });
+            if (message.replies && message.replies.length > 0) {
+              message.replies.sort(function(a, b) {
+                if (a.dateCreation > b.dateCreation) {
+                  return 1;
+                }
+                if (a.dateCreation < b.dateCreation) {
+                  return -1;
+                }
+                return 0;
+              });
+            }
           }
         }, function(err) {
           message.loading = false;
