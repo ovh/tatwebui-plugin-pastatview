@@ -71,10 +71,7 @@
             {{ 'shared_message_show_more' | translate }}
           </button>
         </div>
-        <message-filter-bar></message-filter-bar>
-        <div movable-dialog title="'Filter'" ng-model="ctrl.filterDialog">
-          <message-filter topic="ctrl.data.topic"></message-filter>
-        </div>
+        <message-filter-bar topic="ctrl.data.topic" searching="ctrl.filterDialog.visible"></message-filter-bar>
       </div>
       <div ng-show="ctrl.data.showCreate">
         <div class="btn-group">
