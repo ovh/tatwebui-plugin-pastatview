@@ -48,7 +48,8 @@ angular.module('TatUi')
       contentSnippet: "",
       titleSnippet: "",
       baseHref: null,
-      isFirst: true
+      isFirst: true,
+      initialLoading: false
     };
 
     $scope.$on('filter-changed', function(ev, filter){
@@ -291,6 +292,7 @@ angular.module('TatUi')
           self.toggleMessage(self.data.messages[0]);
         }
       }
+      self.data.initialLoading = false;
     };
 
     /**
@@ -300,6 +302,7 @@ angular.module('TatUi')
      * @description Initialize list messages page. Get list of messages from Tat Engine
      */
     self.init = function() {
+      self.data.initialLoading = true;
       TatTopic.computeTopic(self.topic, self.beginTimer);
     };
 
