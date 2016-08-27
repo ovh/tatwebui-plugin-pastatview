@@ -101,14 +101,14 @@
             <tr>
               <td ng-show="message.replies">
                   <code-highlight ng-show="!message.replies[0].updating" source="message.replies[0].text" type="{{ctrl.getLanguage(message)}}" disable-highlighting="false"></code-highlight>
-                  <button ng-show="!message.replies[0].updating" class="btn btn-default btn-xs" ng-click="message.replies[0].updating=true" ng-disabled="message.replies[0].updating || message.replies[0].deleting"><i class="fa fa-pencil"></i></button>
+                  <button ng-show="!message.replies[0].updating" class="btn btn-default" ng-click="message.replies[0].updating=true" ng-disabled="message.replies[0].updating || message.replies[0].deleting"><i class="fa fa-pencil"></i></button>
                   <div class="tat-editing" ng-if="message.replies[0].updating">
                     <textarea class="form-control" ng-model="message.replies[0].text"></textarea>
                     <div class="btn-group">
-                      <button class="btn btn-default btn-xs" ng-click="message.replies[0].updating=false">
+                      <button class="btn btn-default" ng-click="message.replies[0].updating=false">
                         {{ 'shared_common_cancel' | translate }}
                       </button>
-                      <button class="btn btn-primary btn-xs" ng-click="ctrl.updateMessage(message.replies[0]);">
+                      <button class="btn btn-primary" ng-click="ctrl.updateMessage(message.replies[0]);">
                         {{ 'shared_message_update' | translate }}
                       </button>
                     </div>
@@ -124,20 +124,20 @@
     <div class="message-update" ng-show="message.updating">
       <textarea class="form-control" ng-model="message.text"></textarea>
       <div class="btn-group">
-        <button class="btn btn-default btn-xs" ng-click="message.updating=false">
+        <button class="btn btn-default" ng-click="message.updating=false">
           {{ 'shared_common_cancel' | translate }}
         </button>
-        <button class="btn btn-primary btn-xs" ng-click="ctrl.updateMessage(message); $event.stopPropagation();">
+        <button class="btn btn-primary" ng-click="ctrl.updateMessage(message); $event.stopPropagation();">
           {{ 'shared_message_update' | translate }}
         </button>
       </div>
     </div>
     <div class="message-delete" ng-show="message.deleting">
       <div class="btn-group">
-        <button class="btn btn-default btn-xs" ng-click="message.deleting=false">
+        <button class="btn btn-default" ng-click="message.deleting=false">
           {{ 'shared_common_cancel' | translate }}
         </button>
-        <button class="btn btn-danger btn-xs" ng-click="ctrl.deleteMessage(message);">
+        <button class="btn btn-danger" ng-click="ctrl.deleteMessage(message);">
           {{ 'shared_message_confirm_delete' | translate }} <span ng-show="message.replies.length">{{ 'shared_message_and_replies' | translate }}</span>
         </button>
       </div>
@@ -152,8 +152,8 @@
         <tr ng-repeat="(idx,reply) in message.replies | filter:message.search" class="tat-msg-wrapper" ng-class="{'deleting': reply.deleting, 'updating': reply.updating}">
           <td ng-if="!reply.hide && idx !== 0">
             <div class="tat-actions">
-              <button class="btn btn-default btn-xs" ng-click="reply.updating=true" ng-disabled="reply.updating || reply.deleting"><i class="fa fa-pencil"></i></button>
-              <button class="btn btn-default btn-xs" ng-click="reply.deleting=true" ng-disabled="reply.deleting || reply.updating "><i class="fa fa-trash"></i></button>
+              <button class="btn btn-default" ng-click="reply.updating=true" ng-disabled="reply.updating || reply.deleting"><i class="fa fa-pencil"></i></button>
+              <button class="btn btn-default" ng-click="reply.deleting=true" ng-disabled="reply.deleting || reply.updating "><i class="fa fa-trash"></i></button>
             </div>
             <div class="tat-msg" ng-bind-html="reply.text | linky | nl2br | parseTags:reply.tags"></div>
             <div class="tat-meta">
@@ -166,20 +166,20 @@
             <div class="tat-editing" ng-if="reply.updating">
               <textarea class="form-control" ng-model="reply.text"></textarea>
               <div class="btn-group">
-                <button class="btn btn-default btn-xs" ng-click="reply.updating=false">
+                <button class="btn btn-default" ng-click="reply.updating=false">
                   {{ 'shared_common_cancel' | translate }}
                 </button>
-                <button class="btn btn-primary btn-xs" ng-click="ctrl.updateMessage(reply);">
+                <button class="btn btn-primary" ng-click="ctrl.updateMessage(reply);">
                   {{ 'shared_message_update' | translate }}
                 </button>
               </div>
             </div>
             <div class="tat-deleting" ng-if="reply.deleting">
               <div class="btn-group">
-                <button class="btn btn-default btn-xs" ng-click="reply.deleting=false">
+                <button class="btn btn-default" ng-click="reply.deleting=false">
                   {{ 'shared_common_cancel' | translate }}
                 </button>
-                <button class="btn btn-danger btn-xs"
+                <button class="btn btn-danger"
                   ng-click="ctrl.deleteMessage(reply);">
                   {{ 'shared_message_confirm_delete' | translate }}
                 </button>
